@@ -1,14 +1,18 @@
 import sys
 import random
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
 
 
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setGeometry(300, 300, 400, 400)
+        self.setWindowTitle('Шестая программа')
+        self.pushButton = QPushButton('0-0', self)
+        self.pushButton.move(40, 120)
+        self.label2 = QLabel(self)
+        self.label2.move(0, 0)
         self.pushButton.clicked.connect(self.update)
 
     def paintEvent(self, event):
